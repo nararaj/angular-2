@@ -1,0 +1,35 @@
+<div>
+<h1>OnClick to show component </h1>
+<button (click)="onClickMe()">Click me!</button>
+{{clickMessage}}
+</div>
+<div>
+<h1>Keyup up component</h1>
+<input (keyup)="onKey($event)">
+<p>{{values1}}</p>
+</div>
+<div>
+    <h1>Keyup loop-back component</h1>
+    <input #box (keyup)="0">
+    <p>{{box.value}}</p>
+</div>
+<div>
+    <h1>Press enter to show entered data</h1>
+    <input #enteredVar (keyup.enter)="onEnter(enteredVar.value)">
+    <p>{{enteredValue}}</p>
+</div>
+<div>
+    <h1>On blur to show entered data</h1>
+    <input #field (blur)="0">
+    <p>{{field.value}}</p>
+</div>
+<div>
+    <h1>To do List</h1>
+    <input #inputValues (keyup.enter)="addItem(inputValues.value)">
+    <button type="button" (click)="addItem(inputValues.value)">Add Item</button>
+    <ul>
+        <li *ngFor="let value of values">{{value}}</li>
+    </ul>
+</div>
+<h1>Welcome to routing on same page</h1>
+<router-outlet></router-outlet>
